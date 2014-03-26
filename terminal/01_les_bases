@@ -40,18 +40,41 @@ ls
 -------------------------------------
 
 pwd
-	Où suis-je ?
+	# Où suis-je ?
+	# Indique l'emplacement actuel
+	$ pwd
+	/home/toto	
+
+-------------------------------------
 
 cd
-	--> cd
+# Se déplacer d'un répertoire vers un autre
+	
+	# Se déplacer directement à la racine (/)
 	--> cd /
+
+	# Se déplacer dans le répertoire /usr/bin
 	--> cd /usr/bin
+
+	# Se déplacer dans le répertoire /etc
 	--> cd /etc
+
+	# Remonter dans le répertoire précédent puis rentrer dans le répertoire home
 	--> cd ../home
+
+	# Remonter dans le répertoire précédent 
 	--> cd ..
+
+	# Remonter dans le répertoire précédent, puis de nouveau dans le répertoire au dessus. 
 	--> cd ../..
 
+	# Ramenne dans le répertoire de l'utilisateur
+	--> cd
+
+------------------------------------
+
 echo
+
 	--> echo Bonjour Monsieur !
 	Bonjour Monsieur !
 
