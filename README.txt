@@ -3,5 +3,12 @@ distributions GNU/Linux.
 On peut y trouver aussi des commandes spécifiques et des astuces.
 Si celles-ci concernent une distribution en particulier, la mention en ait
 faite.
+-------------------------------------------------------------------------
+This repository contains basic information on most
+GNU / Linux distributions.
+One can also find specific commands and tricks.
+If they concern a particular distribution, the reference is in
+made.
 
-Dépôt créé le 25 mars 2014 par jpantinoux
+jpantinoux <sloteur@free.fr>
+mer. mars 26 09:47:33 CET 2014
