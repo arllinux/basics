@@ -1,0 +1,243 @@
+#----------------------------------------------------
+'Les commandes de bases et leurs principales options'
+#----------------------------------------------------
+
+Il faut bien comprendre que sur tout système informatique,
+nous disposons d'une interface graphique pour les tâches quotidiennes
+et nous avons aussi une interface non graphique,
+appelée "console" pour les tâches d'administration du système.
+
+Sous Windows le plus souvent l'administration se fait en graphique.
+Cela vient du coté peu ergonomique dont souffre la console sous cet OS
+
+Sous Linux, il s'agit au contraire d'un outil redoutablement efficasse.
+De plus son utilisation permet de passer d'un distribution à une autre,
+moyennant un temps d'adaptation très court.
+
+1 - L'invite de commande
+#-----------------------
+
+'Console graphique'
+#-------------------
+
+[jpantinoux@prunelle:~] $
+
+Cette ligne apparait lorsque l'on ouvre une console graphique
+Elle signifie littéralement :
+Vous êtes l'utilisateur "jpantinoux" dans la machine [prunelle]. Vous vous trouvez dans votre dossier utilisateur :"~".
+Le signe "$" indique que vous êtes un simple utilisateur.
+
+Il est bien sûr possible de passer en mode administrateur (nous verrons plus bas)
+
+'Console virtuelle'
+#------------------
+
+Dans une console virtuelle (F1 à F6), l'nvite n'apparait pas directement connecté.
+En effet lorsque vous êtes dans votre session graphique, vous vous êtes déjà identifié par votre login et mot de passe.
+C'est pourquoi votre console est déjà connectée.
+
+En console virtuelle il faut vous identifier :
+Pourquoi ?
+La pluspart des serveurs tournant sous Linux n'ont pas d'interface graphique.
+Pour une question de sécurité il est important que la machine ne puisse être accessible
+que part un tehnicien. Il est donc normal qu'au démarrage ou lorsque l'on passe en console 
+virtuelle, il faille s'identifier.
+
+L'invite est au départ la suivante :
+	
+	prunelle login:
+
+IL nous faut donc taper notre login (identifiant)
+
+	prunelle login: jpantinoux '<entrée>'
+	Password:
+
+Lorsque vous tapez le mot de passe, celui-ci ne s'affiche pas.
+C'est normal.
+Il s'agit d'un sécurité qui évite que quelqu'un de mal intentionné ne compte le nombre de caractères de votre mot de passe.
+Si la connection réussi, le système affiche le dernier accès à cette console.
+	
+	Last Login: Thu Sep 22 01:06:53 from prunelle
+	[jpantinoux@prunelle:~] $
+
+
+2 - Se déplacer dans les répertoires
+#-----------------------------------
+
+Utilisateur :           Oui
+Administrateur :        Oui
+
+Invite de commande
+[jpantinoux@prunelle:~] $ 
+
+# La commande ls
+
+Elle permet de lister les fichiers dans un répertoire
+Essayons
+
+--> $ ls
+''''''''
+2_test_svn                    DD20_Go                IMG_0093.JPG     openDNS~            sécurité_thun
+atelierlinux.regards.free.fr  Documents              inkscape         Outils_compilation  site_regards
+Avocat_mairin                 etc                    Investissements  ouverture.odt       smb.conf~
+bash                          Famille_antinoux.ged   Klavaro          Pierrette           smb.conf_JM
+basics                        Firefox_wallpaper.png  les_bases        podcasts fr3        source_rsync_vers_zip
+bin                           fireftp                Mac bart         preparer_un_disque  SSH-HOWTO
+Bureau                        fleche_rouge.png       menu.lst         Public              Téléchargements
+centos                        formation niki         microlinux       reseau_JM           test_JM
+Certificats de révocation     Fouzitou               Modèles          samba_ubuntu.pdf    translog.201100.log
+compilation                   freebox                Musique          scribus             Vidéos
+configurer freebox            Généalogie             netstat_lsof     securite_fichiers   vista_samba
+controle_md5                  Images                 openDNS          securite.html       zip
+
+Cette liste nous retourne sous sa forme la plus simple. Les éléments ne sont identifiés que par leur couleur
+
+	Les éléments en bleu représentent des répertoires.	(ex : 2_test_svn, basics...)
+	Les éléments en blanc sont des fichiers.		(ex : compilation, configurer freebox...)
+	Les éléments en jaune sont des exécutables		(ex : controle_md5, réseauJM...)
+	Les éléments en violet sont des images			(ex : Firefox_wallpaper.png...)
+
+Pour l'instant c'est tout ce que nous pouvons en savoir.
+
+Essayons la même chose en changeant de répertoire.
+Demandons à voir le contenu de la racine du système.
+
+--> $ ls /
+''''''''''
+	bin   cgroup  etc   lib         media  opt      proc  sbin     srv  tmp  var
+	boot  dev     home  lost+found  mnt    partage  root  selinux  sys  usr
+
+===============================================================================================================
+Que pouvons nous déduire de ce dernier essai ?
+
+	- On m'avais dit qu'un utilisteur simple n'avait pas le droit de rentrer dans le système.
+	- Rentrer peut-être pas, mais voir les principaux répertoires, oui !!
+
+	- A partir de là où l'on se trouve, pour accéder à un point donné, il faut toujours partir
+	  de la racine, symbolisée par "/" pour être sur de trouver son chemin
+===============================================================================================================
+
+Lister tous les fichiers y compris les fichiers et répertoires cachés
+$ ls -a
+''''''''
+.                             .dbus                  .gnucash         menu.lst             securite_fichiers
+..                            DD20_Go                .gnupg           microlinux           securite.html
+2_test_svn                    .designer              .googleearth     Modèles              sécurité_thun
+.adobe                        .dmrc                  .gstreamer-0.10  .mozilla             site_regards
+.ancestris                    Documents              .gtk-bookmarks   .mplayer             smb.conf_JM
+
+L'option "a" est précédée d'un tiret.
+	La pluspart des commandes fonctionnent de cette manière.
+	On appelle la commande puis on ajoute des options.
+	Dans note cas "-a" va afficher tous les éléments cachés.
+
+.mozilla est un dossier qui contient les paramètres personnel de Firefox pour l'utilisateur.
+
+	Deux répertoires particuliers :
+		"."
+		Vous avez bien lu, il ne s'agit pas d'une erreur de frappe.
+		Le "." est une commande qui signifie "ici".
+		Elle est utile lorsque vous demander d'exécuter une action en précisant
+		le répertoire où vous vous trouvez.
+
+		".."
+		Cette fois les deux points signifient "répertoire parent"
+		Lorsque vous vous trouvez dans /home/jpantinoux/Documents
+		L'invocation des ".." avec la commande adhéquate permet de remonter
+		vers /home/jpantinoux.
+
+===============================================================================================================
+
+Lister les éléments contenus dans un répertoire avec un identifiant de type
+$ ls -F
+''''''''
+2_test_svn/                    controle_md5*          Images/           openDNS             site_regards/
+atelierlinux.regards.free.fr/  DD20_Go/               IMG_0093.JPG      Outils_compilation  smb.conf_JM
+Avocat_mairin/                 Documents/             inkscape/         ouverture.odt       source_rsync_vers
+
+	Un / après le nom de l'élément indique un répertoire
+	Une * indique un fichier régulier exécutable (un script)
+	Si l'élément n'est suivi d'aucune indication, il s'agit d'un fichier régulier
+
+===============================================================================================================
+
+Lister les éléments d'un répertoire
+	-l : sous forme de liste
+	-h : human readable
+	-t : trier par ordre de date
+	-r : renverser le tri
+Cette option permet d'avoir (surtout utile dans une longue liste) les derniers éléments modifiés en bas
+
+$ ls -lhrt
+''''''''''
+total 16K
+-rw-rw-r--. 1 jpantinoux jpantinoux  721 23 juil. 00:34 commandes_unix
+-rw-rw-r--  1 jpantinoux jpantinoux 2,0K  8 déc.  01:01 commandes_de_base
+-rw-rw-r--  1 jpantinoux jpantinoux 7,9K  8 déc.  01:43 les_bases
+
+===============================================================================================================
+
+Lister le contenu d'un répertoire sans y entrer
+$ ls -lh /etc/samba
+''''''''''''''''''''
+[jpantinoux@prunelle:~] $ ls -lh /etc/samba
+total 20K
+-rw-r--r--. 1 root root   20  4 juil. 23:55 lmhosts
+-rw-r--r--  1 root root  252 18 oct.  18:46 smb.conf
+-rw-r--r--  1 root root 9,7K  9 sept. 00:29 smb.conf_old
+
+===============================================================================================================
+Lister les caractéristiques d'un fichier
+$ ls -lh les_bases
+''''''''''''''''''
+[jpantinoux@prunelle:~/2_test_svn/basics/bases_console] $ ls -lh les_bases 
+-rw-rw-r-- 1 jpantinoux jpantinoux 7,9K  8 déc.  01:43 les_bases
+
+===============================================================================================================
+
+Lister les caractéristiques d'un répertoire
+$ ls -ld bases_console
+''''''''''''''
+[jpantinoux@prunelle:~/2_test_svn/basics] $ ls -ld bases_console/
+drwxrwxr-x. 3 jpantinoux jpantinoux 4096  8 déc.  12:48 bases_console/
+
+===============================================================================================================
+
+L'utilisation de raccourcis clavier
+''''''''''''''''''''''''''''''''''
+L'utilisateur ainsi que l'administrateur peuvent paramétrer, dans le fichier .bashrc
+qui se trouve à la racine de chaque utilisateur, des raccourcis pour ne pas taper
+toujours les même commandes.
+Dans l'exemple suivant taper "ll" au clavier sera équivalent à taper "ls -lh"
+
+A mettre dans .bashrc pour créer le raccourcis ll qui pemplace la commande ls -lh
+alias ll='ls -lh'
+''''''''''''''''
+===============================================================================================================
+
+Ou suis-je ?
+pwd
+
+Changer de répertoire
+cd /home/jpantinoux/Téléchargements
+cd ..
+/home/jpantinoux
+cd ../..
+/home
+cd ../../..
+/
+cd
+
+Afficher du texte sur l'écran
+$ echo Bonjour Monsieur !
+$ echo Bonjour Monsieur ! > bonjour.txt
+
+$ cat bonjour.txt
+$ echo Bonjour Madame ! > bonjour2.txt
+$ echo Bonjour les enfants ! > bonjour3.txt
+
+$ cat bonjour.txt bonjour2.txt bonjour3.txt
+
+$ cat bonjour.txt bonjour2.txt bonjour3.txt > bonjourtous.txt
+$ cat bonjourtoux.txt
+

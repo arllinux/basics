@@ -1,0 +1,156 @@
+# -----------------------------------
+Les bases
+# -----------------------------------
+
+Visualiser le contenu des répertoires :
+
+ls
+	# Lister la racine du système (sous forme de colonnes)
+	-->  ls /
+	
+	# Lister le contenu du répertoire /usr (sous forme de colonnes)
+	-->  ls /usr
+	
+	# Lister le contenu du répertoire /etc (sous forme de colonnes) en indiquant les types
+	# xxxx/ = répertoire (couleur bleue)
+	# xxxx = fichier non exécutable (couleur blanche)
+	# xxxx@ = lien symboliqe (couleur turquoise)
+	# xxxx* = fichier exécutable (couleur verte)
+	--> ls -F /etc
+	
+	# Lister le contenu du répertoire courant sous forme de liste détaillés
+	--> ls -l
+
+	# Lister le contenu du répertoire /etc/cups sous forme de liste détaillés
+	--> ls -l /etc/cups
+
+	# Lister le contenu du répertoire courant sous forme de liste détaillés "humainement compréhensible"
+	--> ls -lh
+
+	# Lister le contenu du répertoire courant sous forme de liste détaillés "humainement compréhensible"
+	# dont le dernier élément modifié se trouve en bas de la liste (pour les longue listes)
+	--> ls -lhrt
+	
+	# Visualiser le répertoire /etc  sous forme de liste détaillés
+	--> ls -ld /etc
+
+	# Montrer tous les fichiers et répertoires cachés
+	--> ls -a
+
+-------------------------------------
+
+pwd
+	Où suis-je ?
+
+cd
+	--> cd
+	--> cd /
+	--> cd /usr/bin
+	--> cd /etc
+	--> cd ../home
+	--> cd ..
+	--> cd ../..
+
+echo
+	--> echo Bonjour Monsieur !
+	Bonjour Monsieur !
+
+	--> echo Bonjour Monsieur ! > bonjour.txt
+	Fichier.txt
+	Sortie standard redirigée dans un fichier
+
+cat
+	--> cat bonjour.txt
+	Bonjour Monsieur !
+
+	--> echo Bonjour Madame ! > bonjour2.txt
+	--> echo Bonjour les enfants > bonjour3.txt
+
+	-- cat bonjour.txt bonjour2.txt bonjour3.tst
+	Bonjour Monsieur !
+	Bonjour Madame !
+	Bonjour les enfants !
+
+	--> cat bonjour.txt bonjour2.txt bonjour3.txt > bonjour_tous.txt
+	--> cat bonjour_tous.txt
+
+	--> echo Bonjour Monsieur ! >> bonjour.txt
+	--> echo Bonjour Madame ! >> bonjour.txt
+	--> echo Bonjour les enfants >> bonjour.txt
+	--> cat bonjour.txt
+	Bonjour Monsieur !
+	Bonjour Madame !
+	Bonjour les enfants !
+
+	--> cat /proc/cpuinfo
+
+more
+	--> cat /etc/service
+	--> more /etc/passwd
+	Entrée pour avancer d'une ligne
+	Espace pour avancer d'une page
+	Touche B pour remonter pages par pages
+	Touche Q pour quitter
+	Arrivé à la fin, more quitte
+
+	--> more /etc/service
+
+less
+	--> less /etc/services
+	Touches directionnelles haut/bas
+	Touches directionnelles droite/gauche
+	/nologin (recherche)
+	n = next (prochaine occurence)
+	maj+n = précédant (occurence précédante)
+
+	more et less - visualiseurs non destructeurs
+
+touch
+	--> touch fichier.txt
+mkdir
+	--> mkdir test
+	--> mkdir test\ 1 'test 2' "test 3"
+
+cat ~/livres.txt << EOF
+L'ile mystérieuse
+Le nom de la rose
+le seigneur des anneaux
+<<EOF
+
+tree
+
+cp
+	--> cp fichier.txt fichier1.txt
+	--> cp fichier.txt ~/Documents/
+
+mv
+	--> mv fichier.txt fichier1.txt
+	--> mv fichier.txt ~/Documents/
+
+rm
+	--> rm fichier.txt
+	--> rm -v fichier.txt
+	--> rm -rf dossier\ plein
+
+rmdir
+	--> rmdir dossier\ sans\ titre
+
+clear ou ctrl+l
+
+Vi
+
+Vim
+
+Vimtutor
+
+Complétion automatique
+
+history
+
+Ctrl+r
+
+man
+	--> man -t mv > manuel_mv.ps
+info
+
+
