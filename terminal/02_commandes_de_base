@@ -32,7 +32,7 @@ Il est bien sûr possible de passer en mode administrateur (nous verrons plus ba
 'Console virtuelle'
 #------------------
 
-Dans une console virtuelle (F1 à F6), l'nvite n'apparait pas directement connecté.
+Dans une console virtuelle (F1 à F6), l'invite n'apparait pas directement connecté.
 En effet lorsque vous êtes dans votre session graphique, vous vous êtes déjà identifié par votre login et mot de passe.
 C'est pourquoi votre console est déjà connectée.
 
@@ -205,7 +205,7 @@ drwxrwxr-x. 3 jpantinoux jpantinoux 4096  8 déc.  12:48 bases_console/
 
 L'utilisation de raccourcis clavier
 ''''''''''''''''''''''''''''''''''
-L'utilisateur ainsi que l'administrateur peuvent paramétrer, dans le fichier .bashrc
+L'utilisateur de même que l'administrateur peuvent paramétrer, dans le fichier .bashrc
 qui se trouve à la racine de chaque utilisateur, des raccourcis pour ne pas taper
 toujours les même commandes.
 Dans l'exemple suivant taper "ll" au clavier sera équivalent à taper "ls -lh"
@@ -215,18 +215,51 @@ alias ll='ls -lh'
 ''''''''''''''''
 ===============================================================================================================
 
+Dans tout ce dédale de fichiers et de répertoires, il est facile de se perdre ou du moins
+de ne plus savoir si l'on est dans une machine ou dans une autre !!
+
 Ou suis-je ?
-pwd
+$ pwd
+Cette commande nous retourne le chemin de l'emplacement où l'on se trouve sous la forme :
+/home/jpantinoux/Documents/
+
+===============================================================================================================
 
 Changer de répertoire
+'''''''''''''''''''''
+Maintenant que nous avons vu comment consulter le contenu des répertoires nous allons nous déplacer
+vers d'autres emplacement dans notre système.
+
+La commande cd
+Littéralement "change directory"
+Celle-ci nous permet de désigner la destination vers laquelle nous voulons nous déplacer
+
 cd /home/jpantinoux/Téléchargements
+
+Cette commande nous emmene à partir de la racine du système (/), vers le répertoire utilisteur
+de jpantinoux, puis dans son répertoire Téléchargement.
+
 cd ..
+
+Les ".." à la suite de la commande "cd" nous permettent de remonter dans le dossier parent
+comme nous l'avons vu plus haut.
+Nous nous retrouvons dans le répertoire suivant :
 /home/jpantinoux
+
 cd ../..
-/home
-cd ../../..
+
+La commande inscrite ci-dessus nous permet de remonter de deux niveaux dans les répertoires
+Nous nous retrouvons donc dans le répertoire le plus haut dans le système :
 /
+
 cd
+
+Un moyen plus efficace de remonter directement notre répertoire utilisateur est d'invoquer la
+commande cd seule.
+$ cd
+[jpantinoux@prunelle:~] $
+
+===============================================================================================================
 
 Afficher du texte sur l'écran
 $ echo Bonjour Monsieur !

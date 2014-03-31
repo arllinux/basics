@@ -39,6 +39,8 @@ ls
 
 -------------------------------------
 
+Savoir où l'on se trouve
+
 pwd
 	# Où suis-je ?
 	# Indique l'emplacement actuel
@@ -47,8 +49,9 @@ pwd
 
 -------------------------------------
 
+Se déplacer d'un répertoire vers un autre
+
 cd
-# Se déplacer d'un répertoire vers un autre
 	
 	# Se déplacer directement à la racine (/)
 	--> cd /
