@@ -262,9 +262,9 @@ $ cd
 Autre option pratique :
 Nous nous trouvons dans le répertoire /etc/
 Avec la commande cd, nous nous déplaçons vers le répertoire /usr/share/icons/
-# cd /usr/share/icons/
+$ cd /usr/share/icons/
 Pour retourner directement vers /etc/ sans réécrire le chemin (sourtout s'il est plus complexe que celui-ci) :
-# cd -
+$ cd -
 Et nous revoila de retour dans /etc/
 
 
