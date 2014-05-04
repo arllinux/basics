@@ -1,7 +1,7 @@
 Ce dépôt contient les informations de bases relatives à la plupart des
 distributions GNU/Linux.
 On peut y trouver aussi des commandes spécifiques et des astuces.
-Si celles-ci concernent une distribution en particulier, la mention en ait
+Si celles-ci concernent une distribution en particulier, la mention en est
 faite.
 -------------------------------------------------------------------------
 This repository contains basic information on most
