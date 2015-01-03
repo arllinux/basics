@@ -10,7 +10,7 @@ appelée "console" pour les tâches d'administration du système.
 Sous Windows le plus souvent l'administration se fait en graphique.
 Cela vient du coté peu ergonomique dont souffre la console sous cet OS
 
-Sous Linux, il s'agit au contraire d'un outil redoutablement efficasse.
+Sous Linux, il s'agit au contraire d'un outil redoutablement efficace.
 De plus son utilisation permet de passer d'un distribution à une autre,
 moyennant un temps d'adaptation très court.
 
@@ -270,16 +270,33 @@ Et nous revoila de retour dans /etc/
 
 ===============================================================================================================
 
+# Manipuler du texte : echo et cat
+# ================================
+
 Afficher du texte sur l'écran
 $ echo Bonjour Monsieur !
+
+Envoyer un texte dans un fichier
 $ echo Bonjour Monsieur ! > bonjour.txt
 
+Voir le contenu de bonjour.txt
 $ cat bonjour.txt
+
+Envoyer un texte dans un second fichier
 $ echo Bonjour Madame ! > bonjour2.txt
+
+Envoyer un texte dans un troisième fichier
 $ echo Bonjour les enfants ! > bonjour3.txt
 
+Afficher les trois lignes des trois fichiers dans le terminal
 $ cat bonjour.txt bonjour2.txt bonjour3.txt
+Bonjour Monsieur
+Bonjour Madamme
+Bonjour les enfants
 
 $ cat bonjour.txt bonjour2.txt bonjour3.txt > bonjourtous.txt
 $ cat bonjourtoux.txt
+Bonjour Monsieur
+Bonjour Madamme
+Bonjour les enfants
 
