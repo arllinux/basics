@@ -17,9 +17,9 @@ moyennant un temps d'adaptation très court.
 1 - L'invite de commande
 #-----------------------
 
-'Console graphique'
-#-------------------
-
+========================================================================================
+# Console graphique
+# =================
 [jpantinoux@prunelle:~] $
 
 Cette ligne apparait lorsque l'on ouvre une console graphique
@@ -29,9 +29,10 @@ Le signe "$" indique que vous êtes un simple utilisateur.
 
 Il est bien sûr possible de passer en mode administrateur (nous verrons plus bas)
 
-'Console virtuelle'
-#------------------
 
+========================================================================================
+# Console virtuelle
+# =================
 Dans une console virtuelle (F1 à F6), l'invite n'apparait pas directement connecté.
 En effet lorsque vous êtes dans votre session graphique, vous vous êtes déjà identifié par votre login et mot de passe.
 C'est pourquoi votre console est déjà connectée.
@@ -61,6 +62,7 @@ Si la connection réussi, le système affiche le dernier accès à cette console
 	[jpantinoux@prunelle:~] $
 
 
+========================================================================================
 2 - Se déplacer dans les répertoires
 #-----------------------------------
 
@@ -70,8 +72,9 @@ Administrateur :        Oui
 Invite de commande
 [jpantinoux@prunelle:~] $ 
 
+========================================================================================
 # La commande ls
-
+# ==============
 Elle permet de lister les fichiers dans un répertoire
 Essayons
 
@@ -107,7 +110,7 @@ Demandons à voir le contenu de la racine du système.
 	bin   cgroup  etc   lib         media  opt      proc  sbin     srv  tmp  var
 	boot  dev     home  lost+found  mnt    partage  root  selinux  sys  usr
 
-===============================================================================================================
+
 Que pouvons nous déduire de ce dernier essai ?
 
 	- On m'avais dit qu'un utilisteur simple n'avait pas le droit de rentrer dans le système.
@@ -115,9 +118,10 @@ Que pouvons nous déduire de ce dernier essai ?
 
 	- A partir de là où l'on se trouve, pour accéder à un point donné, il faut toujours partir
 	  de la racine, symbolisée par "/" pour être sur de trouver son chemin
-===============================================================================================================
 
-Lister tous les fichiers y compris les fichiers et répertoires cachés
+========================================================================================
+# Lister tous les fichiers y compris les fichiers et répertoires cachés
+# ===========================================================================
 $ ls -a
 ''''''''
 .                             .dbus                  .gnucash         menu.lst             securite_fichiers
@@ -146,9 +150,9 @@ L'option "a" est précédée d'un tiret.
 		L'invocation des ".." avec la commande adhéquate permet de remonter
 		vers /home/jpantinoux.
 
-===============================================================================================================
-
-Lister les éléments contenus dans un répertoire avec un identifiant de type
+========================================================================================
+# Lister les éléments contenus dans un répertoire avec un identifiant de type
+# ===========================================================================
 $ ls -F
 ''''''''
 2_test_svn/                    controle_md5*          Images/           openDNS             site_regards/
@@ -159,9 +163,9 @@ Avocat_mairin/                 Documents/             inkscape/         ouvertur
 	Une * indique un fichier régulier exécutable (un script)
 	Si l'élément n'est suivi d'aucune indication, il s'agit d'un fichier régulier
 
-===============================================================================================================
-
-Lister les éléments d'un répertoire
+========================================================================================
+# Lister les éléments d'un répertoire
+# ===================================
 	-l : sous forme de liste
 	-h : human readable
 	-t : trier par ordre de date
@@ -175,9 +179,9 @@ total 16K
 -rw-rw-r--  1 jpantinoux jpantinoux 2,0K  8 déc.  01:01 commandes_de_base
 -rw-rw-r--  1 jpantinoux jpantinoux 7,9K  8 déc.  01:43 les_bases
 
-===============================================================================================================
-
-Lister le contenu d'un répertoire sans y entrer
+========================================================================================
+# Lister le contenu d'un répertoire sans y entrer
+# ===============================================
 $ ls -lh /etc/samba
 ''''''''''''''''''''
 [jpantinoux@prunelle:~] $ ls -lh /etc/samba
@@ -186,25 +190,25 @@ total 20K
 -rw-r--r--  1 root root  252 18 oct.  18:46 smb.conf
 -rw-r--r--  1 root root 9,7K  9 sept. 00:29 smb.conf_old
 
-===============================================================================================================
-Lister les caractéristiques d'un fichier
+========================================================================================
+# Lister les caractéristiques d'un fichier
+# ========================================
 $ ls -lh les_bases
 ''''''''''''''''''
 [jpantinoux@prunelle:~/2_test_svn/basics/bases_console] $ ls -lh les_bases 
 -rw-rw-r-- 1 jpantinoux jpantinoux 7,9K  8 déc.  01:43 les_bases
 
-===============================================================================================================
-
-Lister les caractéristiques d'un répertoire
+========================================================================================
+# Lister les caractéristiques d'un répertoire
+# ===========================================
 $ ls -ld bases_console
 ''''''''''''''
 [jpantinoux@prunelle:~/2_test_svn/basics] $ ls -ld bases_console/
 drwxrwxr-x. 3 jpantinoux jpantinoux 4096  8 déc.  12:48 bases_console/
 
-===============================================================================================================
-
-L'utilisation de raccourcis clavier
-''''''''''''''''''''''''''''''''''
+========================================================================================
+# Raccourcis personnalisés
+# ========================
 L'utilisateur de même que l'administrateur peuvent paramétrer, dans le fichier .bashrc
 qui se trouve à la racine de chaque utilisateur, des raccourcis pour ne pas taper
 toujours les même commandes.
@@ -213,8 +217,10 @@ Dans l'exemple suivant taper "ll" au clavier sera équivalent à taper "ls -lh"
 A mettre dans .bashrc pour créer le raccourcis ll qui pemplace la commande ls -lh
 alias ll='ls -lh'
 ''''''''''''''''
-===============================================================================================================
 
+========================================================================================
+# Où suis-je ?
+# ============
 Dans tout ce dédale de fichiers et de répertoires, il est facile de se perdre ou du moins
 de ne plus savoir si l'on est dans une machine ou dans une autre !!
 
@@ -223,10 +229,9 @@ $ pwd
 Cette commande nous retourne le chemin de l'emplacement où l'on se trouve sous la forme :
 /home/jpantinoux/Documents/
 
-===============================================================================================================
-
-Changer de répertoire
-'''''''''''''''''''''
+========================================================================================
+# Changer de répertoire
+# =====================
 Maintenant que nous avons vu comment consulter le contenu des répertoires nous allons nous déplacer
 vers d'autres emplacement dans notre système.
 
@@ -268,7 +273,7 @@ $ cd -
 Et nous revoila de retour dans /etc/
 
 
-===============================================================================================================
+========================================================================================
 
 # Manipuler du texte : echo et cat
 # ================================
@@ -276,7 +281,7 @@ Et nous revoila de retour dans /etc/
 Afficher du texte sur l'écran
 $ echo Bonjour Monsieur !
 
-Envoyer un texte dans un fichier
+Envoyer un texte dans un fichier en écrasant son contenu (ici le fichier est vide !)
 $ echo Bonjour Monsieur ! > bonjour.txt
 
 Voir le contenu de bonjour.txt
@@ -300,3 +305,206 @@ Bonjour Monsieur
 Bonjour Madamme
 Bonjour les enfants
 
+Exemple concret dans un script :
+cat /template/smb.conf > /etc/samba/smb.conf
+
+Ici tout le contenu du modèle va écraser le contenu du fichier de destination
+Il n'y à pas de garde fou. Il faut être sur de ce que l'on fait.
+C'est pourquoi il vaut mieux dans tout les cas faire une copie du fichier d'origine :
+cp /etc/samba/smb.conf /etc/samba/smb.conf.old
+
+Dans notre script nous aurons donc les deux lignes
+cp /etc/samba/smb.conf /etc/samba/smb.conf.old
+cat /template/smb.conf > /etc/samba/smb.conf
+
+cat permet aussi de visualiser certain fichier sensible :
+cat /proc/cpuinfo
+
+Une autre utilisation de cat
+Ecrite directement le texte sur la console avec les
+retour à la ligne avec << EOF <<EOF
+
+cat ~/livres.txt << EOF
+L'ile mystérieuse
+Le nom de la rose
+le seigneur des anneaux
+<<EOF
+
+========================================================================================
+# Visualiser du texte : more et less
+# ==================================
+more
+Comme cat mais en mieux pour afficher le contenu des fichiers
+Certains fichiers ne doivent pas être ouverts avec un éditeur
+qui peut détruire les données
+	
+  --> cat /etc/ssh/sshd.conf
+	--> more /etc/passwd
+	Entrée pour avancer d'une ligne
+	Espace pour avancer d'une page
+	Touche B pour remonter pages par pages
+	Touche Q pour quitter
+	Arrivé à la fin, more quitte
+
+	--> more /etc/service
+
+less
+	--> less /etc/ssh/sshd.conf
+	Touches directionnelles haut/bas
+	Touches directionnelles droite/gauche
+	/nologin (recherche)
+	n = next (prochaine occurence)
+	maj+n = précédant (occurence précédante)
+
+	more et less - visualiseurs non destructeurs
+
+========================================================================================
+# Créer fichers et répertoires
+# ============================
+Créer un fichier tout simple
+touch
+	--> touch fichier.txt
+
+Créer un répertoire
+mkdir
+	--> mkdir test
+	--> mkdir test\ 1 'test 2' "test 3"
+Trois façons de faire pour les espaces dans les noms :
+Le caractère d'échappement (\) comme dans test\ 1
+Les guillemets simples ou doubles 
+
+
+
+========================================================================================
+# Lister une arborescence en console
+# ==================================
+
+# tree save
+save/
+└── bin
+    ├── procedure_zac
+        └── save_all.sh
+
+1 directory, 2 files
+
+
+========================================================================================
+# Copier un fichier
+# =================
+cp
+	--> cp fichier.txt fichier1.txt
+	--> cp fichier.txt ~/Documents/
+
+
+========================================================================================
+# Déplacer ou couper/renommer un fichier
+# =====================================
+mv
+	--> mv fichier.txt fichier1.txt
+	--> mv fichier.txt ~/Documents/
+
+
+========================================================================================
+# Supprimer définitivement un fichier ou un répertoire
+# ====================================================
+rm
+	--> rm fichier.txt
+	--> rm -v fichier.txt
+	--> rm -rf dossier\ plein
+
+========================================================================================
+# Supprimer définitivement un répertoire vide
+# ===========================================
+rmdir
+	--> rmdir dossier\ vide
+
+
+========================================================================================
+# Nettoyer la console (place l'invite en haut de l'écran
+# ======================================================
+ctrl + l
+
+
+========================================================================================
+# Raccourcis pour quitter la console
+# ==================================
+ctrl + d
+Se déconnecter du compte administrateur
+ctrl + d à nouveau quitte la console
+
+
+========================================================================================
+# Editeur de texte installé par défaut
+# ====================================
+Vi
+
+========================================================================================
+# Editeur amélioré que nous utiliserons
+# =====================================
+Vim
+
+========================================================================================
+# Apprendre à utiliser Vim
+# ========================
+Vimtutor
+Il ne faut pas essayer d'apprendre les commandes de Vim par coeur
+Mais au contraire il faut que les rélexes viennent par la pratique
+Vimtutor est là pour ça !
+
+
+========================================================================================
+# Etre plus efficasse
+# ===================
+Complétion automatique
+
+Quand on tape par ex /et
+On appuie sur tabulation et on obtien
+/etc/
+Là nous n'avons pas gagné beaucoup de temps mais nous sommes sur
+que notre chemin ou notre commande est validé par les système.
+Si ce que nous avons écrit ne se complète pas c'est que nous avons
+fait une erreur.
+
+========================================================================================
+# Retrouver les commandes que nous avons tapé
+# ===========================================
+history
+513  cat sshd_config 
+514  less sshd_config 
+515  more sshd_config 
+516  cd /usr/share/debian
+517  ll
+518  maya/
+519  cd maya/
+520  ll
+521  cd config/
+522  ll
+523  tree scripts/
+524  cd ..
+525  tree save/
+526  history
+
+pour réutiliser une commande il faut taper :
+517!
+
+========================================================================================
+# Retrouver une commande lorsque l'on se rappelle d'un partie
+# ===========================================================
+Ctrl + r
+Dès que l'on tape les première lettre la commande se complète
+toute seule :
+
+(reverse-i-search)`d': dig google.fr
+Ici je n'ai tapé que le "d"
+
+Si ce n'est pas la bonne --> flèche du bas
+
+========================================================================================
+# Le premier endroit où chercher de la documentation (RTFM)
+# =========================================================
+man
+man vim
+et le sommet :
+man man
+
+Et voilà !
