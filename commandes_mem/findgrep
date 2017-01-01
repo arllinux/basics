@@ -1,0 +1,76 @@
+# Recherche d'une portion de texte dans un ou plusieurs fichiers
+# Source :
+# http://askubuntu.com/questions/642991/virtualbox-ubuntu-14-04-vboxclient-the-virtualbox-kernel-service-is-not-runnin
+
+Au départ j'ai exécuté cette commande pour rechercher une anomalie liée à VirtualBox
+
+################################################
+# find . -type f -exec grep VBoxClient {} \;
+et
+# find . -type f -exec grep -lR VBoxClient {} \;
+################################################
+
+Nous allons utiliser la commande "find"
+La commande find permet de chercher des fichiers, et eventuellement d'éxecuter une action dessus.
+
+# find . [nom_fichier]
+
+Le point qui suit la commande "find" indique que la recherche se fait ici.
+C'est à dire dans le répertoire courant.
+
+# find /etc [nom_fichier]
+
+La recherche se fait ici dans le répertoire "/etc".
+Il n'est pas utile de rentrer dans le répertoire.
+
+# find . -type f [nom_fichier]
+
+Recherche dans le répertoire courant "."
+"type f" indique que l'on recherche seulement un fichier et pas un nom de répertoire.
+
+# find . -type f -exec grep [portion_de_texte] {} \;
+
+Recherche dans le répertoire courant "."
+"type f" indique que l'on recherche seulement un fichier et non pas un nom de répertoire.
+"-exec" exécute la commande qui va suivre sur tous les fichiers.
+"grep" Cette commande permet de faire une recherche de caractères dans un fichier.
+"{}" est remplacé par les occurences trouvées
+"\;" Sort de la commande quand la boucle est terminée.
+
+# find /etc -type f -exec grep VBoxClient {} \;
+
+Le retour de cette commande dans le repertoire "/etc" sur la portion de texte "VBoxClient"
+donne ceci :
+
+   chcon -t unconfined_execmem_exec_t '/usr/bin/VBoxClient' > /dev/null 2>&1
+	 semanage fcontext -a -t unconfined_execmem_exec_t '/usr/bin/VBoxClient' > /dev/null 2>&1
+	 And set up VBoxClient to start when the X session does install_x11_startup_app "$lib_dir/98vboxadd-xclient"
+	 "$share_dir/vboxclient.desktop" VBoxClient VBoxClient-all ||
+	 ln -s "$lib_dir/98vboxadd-xclient" /usr/bin/VBoxClient-all 2>/dev/null
+	 # Remove VBoxClient autostart files
+	 rm /usr/bin/VBoxClient-all 2>/dev/null
+# directory VBoxClient will fail to start.
+	 true # "VBoxClient: the VirtualBox kernel service is not running.  Exiting."
+	 # what we had in mind, so we do not start VBoxClient in that case.  We do
+	 /usr/bin/VBoxClient --clipboard
+	 /usr/bin/VBoxClient --checkhostversion
+	 /usr/bin/VBoxClient --display
+	 /usr/bin/VBoxClient --seamless
+	 /usr/bin/VBoxClient --draganddrop
+	 Exec=/usr/bin/VBoxClient-all
+	
+Le résultat est un peu difficile à lire. On voit les informations que l'on cherchait mais on identifie mal les fichiers où elles se trouvent
+Nous allons modifier un peu la commande
+
+# find /etc -type f -exec grep -lR VBoxClient {} \;
+
+Ici l'on a rajouté "-lR" comme options à la commande grep.
+Cela permet d'afficher seulement le nom des fichier où se trouve le ou les mots recherchés.
+On obtient pour la même recherche :
+
+# find /etc -type f -exec grep -lR VBoxClient {} \;
+./init.d/vboxadd-x11
+./X11/Xsession.d/98vboxadd-xclient
+./xdg/autostart/vboxclient.desktop
+
+#=== Fin ===#

@@ -92,13 +92,16 @@ cat
 	--> echo Bonjour Madame ! > bonjour2.txt
 	--> echo Bonjour les enfants > bonjour3.txt
 
-	-- cat bonjour.txt bonjour2.txt bonjour3.tst
+	-- cat bonjour.txt bonjour2.txt bonjour3.txt
 	Bonjour Monsieur !
 	Bonjour Madame !
 	Bonjour les enfants !
 
 	--> cat bonjour.txt bonjour2.txt bonjour3.txt > bonjour_tous.txt
 	--> cat bonjour_tous.txt
+	Bonjour Monsieur !
+	Bonjour Madame !
+	Bonjour les enfants !
 
 	--> echo Bonjour Monsieur ! >> bonjour.txt
 	--> echo Bonjour Madame ! >> bonjour.txt
